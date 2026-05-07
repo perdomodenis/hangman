@@ -65,7 +65,7 @@ jobs:
         run: npm ci
 
       - name: Build erstellen
-        run: npm run build --if-present
+        run: CI=false npm run build
 
   deploy-dev:
     name: Deploy Dev
