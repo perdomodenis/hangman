@@ -45,7 +45,7 @@ jobs:
         run: npm ci
 
       - name: Tests ausführen
-        run: npm test --if-present
+        run: npm test -- --passWithNoTests
 
   build:
     name: Build
