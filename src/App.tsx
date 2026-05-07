@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import words from './wordList.json';
 import HangmanDraw from './component/HangmanDraw';
 import HangmanWord from './component/HangmanWord';
