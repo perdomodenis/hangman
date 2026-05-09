@@ -23,7 +23,7 @@ it('calls addGuessLetter when user clicks "a"', async () => {
   )
   await user.click(screen.getByText('a'))
   
-  // then: the function should be called with "a"
+  // then: function should be called with "a"
   expect(mockAddGuess).toHaveBeenCalledWith('a')
 })
 
