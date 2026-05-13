@@ -23,6 +23,10 @@ function App() {
     .every(letter => guessLetters.includes(letter));
 
   const addGuessLetter = useCallback((letter: string) => {
+    if (guessLetters.includes(letter)) {
+      console.log("🔤 Letter already guessed:", letter);
+      return;
+    }
     if (guessLetters.includes(letter) || isLoser || isWinner) {
       return
     } else {
@@ -36,6 +40,8 @@ function App() {
       const key = e.key
 
       if (!key.match(/^[a-z]$/)) {
+        console.log("⌨️ Key pressed:", key)
+        console.log("🚫 Invalid key ignored:", key)
         return
       } else {
         e.preventDefault();
@@ -51,6 +57,7 @@ function App() {
   }, [guessLetters]);
 
   useEffect(() => {
+    console.log("🏆 GAME WON! Word was:", wordToGuess, "Guessed letters:", guessLetters)
     if (isWinner) {
       toast('Congratulations, you won!', {
         icon: '👏',
@@ -60,6 +67,7 @@ function App() {
   }, [isWinner]);
 
   useEffect(() => {
+    console.log("💀 GAME LOST! Word was:", wordToGuess, "Wrong guesses:", incorrectLetters.length)
     if (isLoser) {
       toast.error('You lost, please refresh the page!', {
         duration: 5000

@@ -49,7 +49,10 @@ const Keyboard = ({
         const isInactive = inactiveLetter.includes(key);
         return (
           <button
-            onClick={() => addGuessLetter(key)}
+           onClick={() => {
+  console.log("🔘 Keyboard button clicked:", key);
+  addGuessLetter(key);
+}}
             className={`${styles.btn} 
             ${isActive ? styles.active : ''}
             ${isInactive ? styles.inactive : ''}`}
