@@ -1,12 +1,15 @@
-import { useCallback, useEffect, useMemo, useState } from 'react';
+import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import words from './wordList.json';
-import HangmanDraw from './component/HangmanDraw';
-import HangmanWord from './component/HangmanWord';
-import Keyboard from './component/Keyboard';
+import HangmanDraw from './component/HangmanDraw.js';
+import HangmanWord from './component/HangmanWord.js';
+import Keyboard from './component/Keyboard.js';
 import { Toaster, toast } from 'react-hot-toast';
+
 
 const DIFFICULTY_LEVELS = ['einfach', 'mittel', 'schwer'] as const;
 type Difficulty = (typeof DIFFICULTY_LEVELS)[number];
+
+const ToasterComponent = Toaster as unknown as React.ComponentType;
 
 const getWordsByDifficulty = (difficulty: Difficulty) => {
   if (difficulty === 'einfach') {
